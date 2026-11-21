@@ -5,7 +5,7 @@ Equipo: 01. Worker: `api-equipo-01`. Versión inicial: `1.0.0`.
 ## Integrantes y datos pendientes
 
 - Integrantes: Santiago Castillo, Ivan Alejandro, Jose Carlos y Rosa Elena.
-- GitHub: USUARIO (pendiente de proporcionar).
+- GitHub: [Santiago-KM](https://github.com/Santiago-KM).
 - workers.dev: equipochido-idgs10a.
 
 URLs de los despliegues manuales confirmados por la salida de Wrangler proporcionada por el equipo:
@@ -13,7 +13,7 @@ URLs de los despliegues manuales confirmados por la salida de Wrangler proporcio
 - Staging: https://api-equipo-01-staging.equipochido-idgs10a.workers.dev
 - Producción: https://api-equipo-01.equipochido-idgs10a.workers.dev
 
-El subdominio real ya está configurado en el pipeline y en el PDF. Falta confirmar el usuario de GitHub y configurar secretos y environments antes del primer push.
+El subdominio real ya está configurado en el pipeline y en el PDF. Usuario de GitHub confirmado: Santiago-KM. El primer push sigue pendiente de confirmar los secretos y las reglas de los environments.
 
 ## Ejecución local
 
@@ -42,7 +42,9 @@ En Cloudflare: perfil > API Tokens > Create Token > plantilla **Edit Cloudflare 
 
 ## GitHub: comandos exactos para PowerShell
 
-`gh` no estaba disponible en el PATH al preparar el proyecto. Instalar GitHub CLI y abrir una terminal nueva:
+Repositorio público creado: https://github.com/Santiago-KM/api-equipo-01. Remoto `origin` configurado. Environment `staging` sin reglas y `production` con required reviewer `Santiago-KM`, aprobación propia permitida y bypass de administradores deshabilitado, verificados mediante la API de GitHub. Todavía no se ha hecho push. Al verificar, no había secretos de repositorio configurados.
+
+GitHub CLI ya está instalado y autenticado como Santiago-KM. Los siguientes comandos documentan la configuración; no repetir la creación si el repositorio ya existe:
 
 ```powershell
 winget install --id GitHub.cli -e
