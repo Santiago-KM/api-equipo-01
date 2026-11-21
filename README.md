@@ -13,7 +13,7 @@ URLs de los despliegues manuales confirmados por la salida de Wrangler proporcio
 - Staging: https://api-equipo-01-staging.equipochido-idgs10a.workers.dev
 - Producción: https://api-equipo-01.equipochido-idgs10a.workers.dev
 
-El subdominio real ya está configurado en el pipeline y en el PDF. Usuario de GitHub confirmado: Santiago-KM. El primer push sigue pendiente de confirmar los secretos y las reglas de los environments.
+El subdominio real ya está configurado en el pipeline y en el PDF. Usuario de GitHub confirmado: Santiago-KM. Los secretos y las reglas de los environments están configurados. El pipeline inicial ya terminó correctamente.
 
 ## Ejecución local
 
@@ -42,7 +42,7 @@ En Cloudflare: perfil > API Tokens > Create Token > plantilla **Edit Cloudflare 
 
 ## GitHub: comandos exactos para PowerShell
 
-Repositorio público creado: https://github.com/Santiago-KM/api-equipo-01. Remoto `origin` configurado. Environment `staging` sin reglas y `production` con required reviewer `Santiago-KM`, aprobación propia permitida y bypass de administradores deshabilitado, verificados mediante la API de GitHub. Todavía no se ha hecho push. Al verificar, no había secretos de repositorio configurados.
+Repositorio público creado: https://github.com/Santiago-KM/api-equipo-01. Remoto `origin` configurado. Environment `staging` sin reglas y `production` con required reviewer `Santiago-KM`, aprobación propia permitida y bypass de administradores deshabilitado, verificados mediante la API de GitHub. El primer push ya se realizó después de confirmar los secretos. Ambos secretos de repositorio están configurados.
 
 GitHub CLI ya está instalado y autenticado como Santiago-KM. Los siguientes comandos documentan la configuración; no repetir la creación si el repositorio ya existe:
 
@@ -100,9 +100,9 @@ El rollback sin `--env` afecta producción. Para staging, si se necesitara: `npx
 
 ## Evidencia y diagnóstico
 
-Verificación local realizada: Node v22.23.5, Wrangler 4.166.0, `npm ci` correcto y 2/2 pruebas aprobadas. La compilación `wrangler deploy --dry-run` pasó para producción y staging con sus respectivos valores de AMBIENTE; no publicó ningún Worker. El PDF fue renderizado e inspeccionado: tres páginas y cuatro marcadores para capturas.
+Verificación local realizada: Node v22.23.5, Wrangler 4.166.0, `npm ci` correcto y 2/2 pruebas aprobadas. La compilación `wrangler deploy --dry-run` pasó para producción y staging con sus respectivos valores de AMBIENTE; no publicó ningún Worker. El PDF fue renderizado e inspeccionado: tres páginas, con las capturas reales del pipeline y de aprobación incorporadas.
 
-`entregable/Practica1.pdf` contiene tres páginas con espacios explícitos para las cuatro capturas requeridas. Es una plantilla de evidencia: no acredita despliegues ni resultados remotos todavía. `entregable/generar_pdf.py` permite regenerarla y completar integrantes y subdominio mediante argumentos `--integrantes` y `--subdominio`.
+`entregable/Practica1.pdf` contiene tres páginas con espacios explícitos para las cuatro capturas requeridas. Incluye las capturas reales del pipeline v1.0.0 y de su aprobación; quedan pendientes las capturas de /health en 1.1.0 y después del rollback. `entregable/generar_pdf.py` permite regenerarla y completar integrantes y subdominio mediante argumentos `--integrantes` y `--subdominio`.
 
 - `npm ci` falla: comprobar que `package-lock.json` esté versionado y coincida con package.json.
 - Autenticación falla: revisar nombres y alcance de `CLOUDFLARE_API_TOKEN` y `CLOUDFLARE_ACCOUNT_ID`.
@@ -111,3 +111,7 @@ Verificación local realizada: Node v22.23.5, Wrangler 4.166.0, `npm ci` correct
 - Error 1027: límite diario gratuito; se reinicia a medianoche UTC.
 
 Referencias: [ambientes de Wrangler](https://developers.cloudflare.com/workers/wrangler/environments/), [environments de GitHub](https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments), [aprobación de despliegues](https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/review-deployments).
+
+## Estado de la segunda versión
+
+El pipeline v1.0.0 [44845869491, intento 2](https://github.com/Santiago-KM/api-equipo-01/actions/runs/44845869491) terminó en success: pruebas, staging y producción, con aprobación de Santiago-KM. Tras corregir el Account ID se reintentó staging correctamente. VERSION en src/index.js se actualizó a 1.1.0; 2/2 pruebas locales aprobadas y /health local comprobado en 1.1.0. Falta desplegar esta versión a producción con aprobación y obtener la evidencia de rollback.
