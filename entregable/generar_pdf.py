@@ -34,8 +34,8 @@ class Captura(Flowable):
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--integrantes', default='[NOMBRE 1, NOMBRE 2, ...]')
-parser.add_argument('--subdominio', default='SUBDOMINIO')
+parser.add_argument('--integrantes', default='Santiago Castillo, Ivan Alejandro, Jose Carlos y Rosa Elena')
+parser.add_argument('--subdominio', default='equipochido-idgs10a')
 args = parser.parse_args()
 styles = getSampleStyleSheet()
 styles.add(ParagraphStyle('TitleCustom', fontName='ArialBold', fontSize=25,
@@ -77,13 +77,14 @@ story = [
     Spacer(1, 14),
     para('Estado del documento', 'SectionCustom'),
     para('Plantilla de evidencia. Los marcadores deben sustituirse por capturas reales. '
-         'Las URLs con SUBDOMINIO son plantillas y no representan despliegues verificados. '
-         'Los integrantes están pendientes hasta recibir sus nombres.'),
+         'Las URLs e integrantes corresponden a los datos proporcionados por el equipo. '
+         'La salida de Wrangler confirma los primeros despliegues manuales; '
+         'la evidencia del pipeline y del rollback sigue pendiente.'),
     para('Flujo esperado', 'SectionCustom'),
     para('Push a main → pruebas con Node 22 → staging automático y smoke test → '
          'aprobación manual de production → despliegue de producción y smoke test.'),
     para('La aprobación requiere configurar Required reviewers en el environment production '
-         'de un repositorio público. El pipeline y los despliegues quedan pendientes de ejecución.'),
+         'de un repositorio público. Los despliegues mediante el pipeline quedan pendientes de ejecución.'),
     PageBreak(),
     para('c) Pipeline y d) aprobación', 'TitleCustom'),
     para('Capturar una ejecución completa con pruebas, staging y producción exitosos. '

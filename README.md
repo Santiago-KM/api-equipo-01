@@ -4,16 +4,16 @@ Equipo: 01. Worker: `api-equipo-01`. Versión inicial: `1.0.0`.
 
 ## Integrantes y datos pendientes
 
-- Integrantes: [NOMBRE 1, NOMBRE 2, ...] (pendientes de proporcionar).
+- Integrantes: Santiago Castillo, Ivan Alejandro, Jose Carlos y Rosa Elena.
 - GitHub: USUARIO (pendiente de proporcionar).
-- workers.dev: SUBDOMINIO (pendiente de elegir y confirmar).
+- workers.dev: equipochido-idgs10a.
 
-Las siguientes URLs son plantillas, no despliegues verificados:
+URLs de los despliegues manuales confirmados por la salida de Wrangler proporcionada por el equipo:
 
-- Staging: https://api-equipo-01-staging.SUBDOMINIO.workers.dev
-- Producción: https://api-equipo-01.SUBDOMINIO.workers.dev
+- Staging: https://api-equipo-01-staging.equipochido-idgs10a.workers.dev
+- Producción: https://api-equipo-01.equipochido-idgs10a.workers.dev
 
-Reemplazar SUBDOMINIO en este archivo, `.github/workflows/cd.yml` y el PDF antes del primer push.
+El subdominio real ya está configurado en el pipeline y en el PDF. Falta confirmar el usuario de GitHub y configurar secretos y environments antes del primer push.
 
 ## Ejecución local
 
@@ -90,7 +90,7 @@ Ejecutar personalmente desde esta carpeta:
 ```powershell
 npx wrangler rollback
 # Revisar que el destino corresponde a 1.0.0 y confirmar el rollback.
-# Abrir https://api-equipo-01.SUBDOMINIO.workers.dev/health y capturar version 1.0.0.
+# Abrir https://api-equipo-01.equipochido-idgs10a.workers.dev/health y capturar version 1.0.0.
 npx wrangler deployments list
 ```
 
